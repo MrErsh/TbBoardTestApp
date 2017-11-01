@@ -1,0 +1,3 @@
+- Для работы приложения необходимо обновить connectionString в web.config.
+- Для работы тестов необходимо обновить connectionString в RepositoryTestsBase.
+- Для DataAccess.Tests бд посто скопирована из DataAccess.

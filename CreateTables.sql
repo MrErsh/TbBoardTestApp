@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[Category]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(1024) NOT NULL, 
+    CONSTRAINT [AK_Category_Id] UNIQUE ([Id])
+)
+GO
+
+CREATE TABLE [dbo].[Quote]
+(
+	[RowId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Author] NVARCHAR(2048) NOT NULL, 
+    [Content] NVARCHAR(MAX) NOT NULL, 
+    [CreationDate] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [CategoryId] UNIQUEIDENTIFIER NOT NULL, 
+	CONSTRAINT FK_TempSales_SalesReason FOREIGN KEY (CategoryId)     
+    REFERENCES [dbo].[Category] (Id)    
+)
